@@ -1,0 +1,17 @@
+header{
+    padding: 30px;
+}
+
+header > nav{
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+header > nav > button{
+    width: 200px;
+    border-style: none;
+    background-color: inherit;
+    font-size: 20px;
+}

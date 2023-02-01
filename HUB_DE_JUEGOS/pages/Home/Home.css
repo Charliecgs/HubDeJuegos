@@ -1,0 +1,22 @@
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    border-style: solid;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+.mainBtn{
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+}
+
+input{
+    height: 40px;
+    width: 400px;
+}

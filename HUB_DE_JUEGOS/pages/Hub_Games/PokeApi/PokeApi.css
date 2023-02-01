@@ -1,0 +1,22 @@
+.secPokeApi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.volver{
+    width: 150px;
+    height: 50px;
+    background-color: greenyellow;
+}
+
+.titlePokeApi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 2rem;
+}
