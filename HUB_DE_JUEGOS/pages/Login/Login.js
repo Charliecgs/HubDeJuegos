@@ -13,9 +13,15 @@ const template = () => `
 
 const addListeners = () => {
     const loginInput = document.querySelector("#loginInput");
-    document.querySelector("#loginBtn").addEventListener("click", () => {
-        localStorage.setItem("user", loginInput.value);
-        gamesTemplate();
+    document.querySelector("#loginBtn").addEventListener("click", () => {     
+            if (loginInput.value == "") {
+              alert("Por favor introduce un nombre para iniciar sesion");
+            } else {
+              localStorage.setItem("user", loginInput.value);
+              gamesTemplate();
+            }
+          
+//        localStorage.setItem("user", loginInput.value);      
     })
 }
 

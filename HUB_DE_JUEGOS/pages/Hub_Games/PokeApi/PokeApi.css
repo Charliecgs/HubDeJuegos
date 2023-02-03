@@ -20,6 +20,9 @@
     flex-direction: column;
     gap: 3rem;
     font-size: 2rem;
+    color: white;
+    padding: 50px;
+    border-radius: 20%;
 }
 
 figure{
@@ -59,4 +62,30 @@ figure > img{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.tipos{
+    width: 100px;
+    height: 100px;
+}
+.regiones{
+    width: 100px;
+    height: 100px;
+}
+
+.botonesDeTYP{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.botonesDeTYP > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 500px;
+    height: 50px;
 }
