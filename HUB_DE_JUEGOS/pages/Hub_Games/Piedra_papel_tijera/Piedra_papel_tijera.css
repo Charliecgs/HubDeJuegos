@@ -1,0 +1,56 @@
+.secPPT{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+}
+
+.pptDiv{
+    border: solid;
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.j1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.j1 > button{
+ width: 200px;
+ height: 100px;
+}
+
+.j2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.j2 > button{
+ width: 200px;
+ height: 100px;
+}
+
+.imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.7rem;
+    margin-top: 30px;
+    font-size: 50px;
+}

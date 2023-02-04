@@ -2,6 +2,8 @@ import "./Games.css";
 
 import { printTemplate as loginTemplate } from "../Login/Login";
 import { printTemplate as pokeApiTemplate } from "../Hub_Games/PokeApi/PokeApi";
+import { printTemplate as pptTemplate } from "../Hub_Games/Piedra_papel_tijera/Piedra_papel_tijera";
+import { printTemplate as quizTemplate } from "../Hub_Games/Quiz/Quiz";
 
 let nameValue;
 
@@ -13,11 +15,24 @@ const template = () =>
             <button id="logOut" class="logOut">Cerrar sesion</button>
         </div>
         <h2>JUEGOS O APLICACIONES</h2>
+        <div class="games2">
         <a href="#" class="pokeApi" id="pokeApi">
             <div>
                 <div id="pokeApi" class="pokeApi">POKEAPI</div>
             </div>
+          
         </a>
+        <a href="#" class="ppt" id="ppt">
+            <div>
+                <div id="ppt" class="ppt">PIEDRA, PAPEL O TIJERAS</div>
+            </div>
+        </a>
+        <a href="#" class="quiz" id="quiz">
+            <div>
+                <div id="quiz" class="quiz">QUIZ DE PREGUNTAS</div>
+            </div>
+        </a>
+        </div>
     </section>
     `;
 
@@ -36,6 +51,19 @@ const poKeApi = () =>{
     })
 }
 
+const piedraPT = () => {
+  const btnPPT = document.querySelector("#ppt");
+  btnPPT.addEventListener("click", () => {
+    pptTemplate();
+  })
+}
+
+const quiz = () =>{
+  const btnPokeApi = document.querySelector("#quiz");
+  btnPokeApi.addEventListener("click", () => {
+    quizTemplate();
+  })
+}
 
 
 export const printTemplate = () => {
@@ -43,4 +71,6 @@ export const printTemplate = () => {
   document.querySelector("#app").innerHTML = template();
   logOut();
   poKeApi();
+  piedraPT();
+  quiz();
 };
