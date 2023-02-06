@@ -4,6 +4,7 @@ import { printTemplate as loginTemplate } from "../Login/Login";
 import { printTemplate as pokeApiTemplate } from "../Hub_Games/PokeApi/PokeApi";
 import { printTemplate as pptTemplate } from "../Hub_Games/Piedra_papel_tijera/Piedra_papel_tijera";
 import { printTemplate as quizTemplate } from "../Hub_Games/Quiz/Quiz";
+import { printTemplate as ahorcadoTemplate } from "../Hub_Games/Ahorcado/Ahorcado";
 
 let nameValue;
 
@@ -30,6 +31,11 @@ const template = () =>
         <a href="#" class="quiz" id="quiz">
             <div>
                 <div id="quiz" class="quiz">QUIZ DE PREGUNTAS</div>
+            </div>
+        </a>
+        <a href="#" class="ahorcado" id="ahorcado">
+            <div>
+                <div id="ahorcado" class="ahorcado">AHORCADO</div>
             </div>
         </a>
         </div>
@@ -66,6 +72,13 @@ const quiz = () =>{
 }
 
 
+const ahorcado = () =>{
+  const btnPokeApi = document.querySelector("#ahorcado");
+  btnPokeApi.addEventListener("click", () => {
+    ahorcadoTemplate();
+  })
+}
+
 export const printTemplate = () => {
   nameValue = localStorage.getItem("user");
   document.querySelector("#app").innerHTML = template();
@@ -73,4 +86,5 @@ export const printTemplate = () => {
   poKeApi();
   piedraPT();
   quiz();
+  ahorcado();
 };

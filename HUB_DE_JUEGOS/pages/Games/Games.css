@@ -34,6 +34,16 @@
     align-items: center;
 }
 
+.games2 > .ahorcado{
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .welcome{
     display: flex;
     justify-content: center;
