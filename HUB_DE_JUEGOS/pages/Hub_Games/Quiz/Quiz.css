@@ -1,8 +1,0 @@
-.secQuiz{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 48px;
-    width: 100%;
-}

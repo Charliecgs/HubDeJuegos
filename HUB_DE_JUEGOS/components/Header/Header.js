@@ -3,8 +3,13 @@ import "./Header.css";
 const template = () => `
 <nav>
   <button id="colorBtn">🎨</button>
+  <div class="headerDiv">
+    <button id="volver" class="volver">Volver a juegos</button>
+    <button id="logOut" class="logOut">Cerrar sesion</button>
+  </div>
 </nav>
 `;
+
 
 const getRandomColor = () => {
   let allComponents = "0123456789ABCDEF";

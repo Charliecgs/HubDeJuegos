@@ -8,6 +8,7 @@
     padding: 20px;
     background-color: black;
     color: white;
+    border-radius: 20px;
 }
 
 .mainBtn{
@@ -19,4 +20,29 @@
 input{
     height: 40px;
     width: 400px;
+    background-color: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: white;
+}
+
+@media (max-width: 500px){
+    .login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 50px;
+        border-style: solid;
+        padding: 20px;
+        background-color: black;
+        color: white;
+        width: 350px;
+    }
+
+    input{
+        height: 40px;
+        width: 300px;
+    }
 }

@@ -1,11 +1,14 @@
 import "./Piedra_papel_tijera.css";
 import { printTemplate as gamesTemplate } from "../../Games/Games";
 
+const eliminar = () => {
+    const volverAtras = document.querySelector(".volver");
+    console.log(volverAtras);
+    volverAtras.style.display = "block";
+  }
+
 const template = () => `
 <section class="secPPT">
-    <div>
-        <button id="volver" class="volver">Volver a juegos</button>
-    </div>
     <div class="titlePPT">
         <h1> PIEDRA, PAPEL O TIJERAS</h1>
     </div>
@@ -38,27 +41,191 @@ let jugador1 = [];
 let jugador2 = [];
 
 const comparacion = () => {
-    if(jugador1 == 1 && jugador2 == 1 || jugador1 == 2 && jugador2 == 2 || jugador1 == 3 && jugador2 == 3) {
-        document.querySelector(".pptDiv").innerHTML="EMPATE";
+    if(jugador1 == 1 && jugador2 == 1 /*|| jugador1 == 2 && jugador2 == 2 || jugador1 == 3 && jugador2 == 3)*/) {
+        document.querySelector(".pptDiv").innerHTML=`
+        <div class="div1">
+                <div class="div1b">
+                    <h1>Jugador 1</h1>
+                    <div class="imagenes1"></div>
+                    <img class="img1">🪨</img>
+                </div>
+            <div>
+            <p>EMPATE</p>
+            </div>
+            <div class="div1c">
+                <h1>Jugador 2</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">🪨</img>
+            </div>
+        </div>`;
+        
         jugador1 = [];
         jugador2 = [];
-    } else if(jugador1 == 2 && jugador2 == 1 || jugador1 == 3 && jugador2 == 2 || jugador1 == 1 && jugador2 == 3){
-        document.querySelector(".pptDiv").innerHTML="HA GANADO EL JUGADOR 1";
+    } else if(jugador1 == 2 && jugador2 == 2){
+        document.querySelector(".pptDiv").innerHTML=`
+        <div class="div1">
+                <div class="div1b">
+                    <h1>Jugador 1</h1>
+                    <div class="imagenes1"></div>
+                    <img class="img1">🧻</img>
+                </div>
+            <div>
+            <p>EMPATE</p>
+            </div>
+            <div class="div1c">
+                <h1>Jugador 2</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">🧻</img>
+            </div>
+        </div>`;
         jugador1 = [];
         jugador2 = [];
-    } else if(jugador1 == 1 && jugador2 == 2 || jugador1 == 2 && jugador2 == 3 || jugador1 == 3 && jugador2 == 1){
-        document.querySelector(".pptDiv").innerHTML="HA GANADO EL JUGADOR 2";
+    } else if(jugador1 == 3 && jugador2 == 3){
+        document.querySelector(".pptDiv").innerHTML=`
+        <div class="div1">
+                <div class="div1b">
+                    <h1>Jugador 1</h1>
+                    <div class="imagenes1"></div>
+                    <img class="img1">✂️</img>
+                </div>
+            <div>
+            <p>EMPATE</p>
+            </div>
+            <div class="div1c">
+                <h1>Jugador 2</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">✂️</img>
+            </div>
+        </div>`;
         jugador1 = [];
         jugador2 = [];
-    }
-}
+
+} else if(jugador1 == 2 && jugador2 == 1){
+    document.querySelector(".pptDiv").innerHTML=`
+    <div class="div1">
+            <div class="div1b">
+                <h1>Jugador 1</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">🧻</img>
+            </div>
+        <div>
+        <p>GANA JUGADOR 1 (GANA PAPEL)</p>
+        </div>
+        <div class="div1c">
+            <h1>Jugador 2</h1>
+            <div class="imagenes1"></div>
+            <img class="img1">🪨</img>
+        </div>
+    </div>`;
+    jugador1 = [];
+    jugador2 = [];
+ } else if(jugador1 == 3 && jugador2 == 2){
+    document.querySelector(".pptDiv").innerHTML=`
+    <div class="div1">
+            <div class="div1b">
+                <h1>Jugador 1</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">✂️</img>
+            </div>
+        <div>
+        <p>GANA JUGADOR 1 (GANA TIJERAS)</p>
+        </div>
+        <div class="div1c">
+            <h1>Jugador 2</h1>
+            <div class="imagenes1"></div>
+            <img class="img1">🧻</img>
+        </div>
+    </div>`;
+    jugador1 = [];
+    jugador2 = [];
+    } else if(jugador1 == 1 && jugador2 == 3){
+        document.querySelector(".pptDiv").innerHTML=`
+        <div class="div1">
+                <div class="div1b">
+                    <h1>Jugador 1</h1>
+                    <div class="imagenes1"></div>
+                    <img class="img1">🪨</img>
+                </div>
+            <div>
+            <p>GANA JUGADOR 1 (GANA PIEDRA)</p>
+            </div>
+            <div class="div1c">
+                <h1>Jugador 2</h1>
+                <div class="imagenes1"></div>
+                <img class="img1">✂️</img>
+            </div>
+        </div>`;
+        jugador1 = [];
+        jugador2 = [];
+        }else if(jugador1 == 1 && jugador2 == 2){
+            document.querySelector(".pptDiv").innerHTML=`
+            <div class="div1">
+                    <div class="div1b">
+                        <h1>Jugador 1</h1>
+                        <div class="imagenes1"></div>
+                        <img class="img1">🪨</img>
+                    </div>
+                <div>
+                <p>GANA JUGADOR 2 (GANA PAPEL)</p>
+                </div>
+                <div class="div1c">
+                    <h1>Jugador 2</h1>
+                    <div class="imagenes1"></div>
+                    <img class="img1">🧻</img>
+                </div>
+            </div>`;
+            jugador1 = [];
+            jugador2 = [];
+            } else if(jugador1 == 2 && jugador2 == 3){
+                document.querySelector(".pptDiv").innerHTML=`
+                <div class="div1">
+                        <div class="div1b">
+                            <h1>Jugador 1</h1>
+                            <div class="imagenes1"></div>
+                            <img class="img1">🧻</img>
+                        </div>
+                    <div>
+                    <p>GANA JUGADOR 2 (GANA TIJERAS)</p>
+                    </div>
+                    <div class="div1c">
+                        <h1>Jugador 2</h1>
+                        <div class="imagenes1"></div>
+                        <img class="img1">✂️</img>
+                    </div>
+                </div>`;
+                jugador1 = [];
+                jugador2 = [];
+                } else if(jugador1 == 3 && jugador2 == 1){
+                    document.querySelector(".pptDiv").innerHTML=`
+                    <div class="div1">
+                            <div class="div1b">
+                                <h1>Jugador 1</h1>
+                                <div class="imagenes1"></div>
+                                <img class="img1">✂️</img>
+                            </div>
+                        <div>
+                        <p>GANA JUGADOR 2 (GANA PIEDRA)</p>
+                        </div>
+                        <div class="div1c">
+                            <h1>Jugador 2</h1>
+                            <div class="imagenes1"></div>
+                            <img class="img1">🪨</img>
+                        </div>
+                    </div>`;
+                    jugador1 = [];
+                    jugador2 = [];
+                    }
+
+
+ }
+
 
 const piedra = () => {
     const btnPiedra = document.querySelector(".piedra");
     btnPiedra.addEventListener("click", () => {
         jugador1 = [];
         jugador1.push(1);
-        document.querySelector(".j1").innerHTML="";
+        document.querySelector(".j1").innerHTML=`ESPERANDO⌛`;
         comparacion();
     })
 }
@@ -67,7 +234,7 @@ const papel = () => {
     btnPapel.addEventListener("click", () => {
         jugador1 = [];
         jugador1.push(2);
-        document.querySelector(".j1").innerHTML="";
+        document.querySelector(".j1").innerHTML=`ESPERANDO⌛`;
         comparacion();
     })
 }
@@ -76,7 +243,7 @@ const tijera = () => {
     btnTijera.addEventListener("click", () => {
         jugador1 = [];
         jugador1.push(3);
-        document.querySelector(".j1").innerHTML="";
+        document.querySelector(".j1").innerHTML=`ESPERANDO⌛`;
         comparacion();
     })
 }
@@ -86,7 +253,7 @@ const piedraj2 = () => {
     btnPiedra.addEventListener("click", () => {
         jugador2 = [];
         jugador2.push(1);
-        document.querySelector(".j2").innerHTML="";
+        document.querySelector(".j2").innerHTML=`ESPERANDO⌛`;
         comparacion();
 
     })
@@ -96,7 +263,7 @@ const papelj2 = () => {
     btnPapel.addEventListener("click", () => {
         jugador2 = [];
         jugador2.push(2);
-        document.querySelector(".j2").innerHTML="";
+        document.querySelector(".j2").innerHTML=`ESPERANDO⌛`;
         comparacion();
     })
 }
@@ -105,7 +272,7 @@ const tijeraj2 = () => {
     btnTijera.addEventListener("click", () => {
         jugador2 = [];
         jugador2.push(3);
-        document.querySelector(".j2").innerHTML="";
+        document.querySelector(".j2").innerHTML=`ESPERANDO⌛`;
         comparacion();
     })
 }
@@ -136,4 +303,16 @@ export const printTemplate = () => {
     papelj2();
     tijeraj2();
     volverAJugar();
+    eliminar();
   };
+
+//   (jugador1 == 2 && jugador2 == 1 || jugador1 == 3 && jugador2 == 2 || jugador1 == 1 && jugador2 == 3){
+//     document.querySelector(".pptDiv").innerHTML="HA GANADO EL JUGADOR 1";
+//     jugador1 = [];
+//     jugador2 = [];
+// } else if(jugador1 == 1 && jugador2 == 2 || jugador1 == 2 && jugador2 == 3 || jugador1 == 3 && jugador2 == 1){
+//     document.querySelector(".pptDiv").innerHTML="HA GANADO EL JUGADOR 2";
+//     jugador1 = [];
+//     jugador2 = [];
+// }
+// }

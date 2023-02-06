@@ -3,8 +3,17 @@ import "./Games.css";
 import { printTemplate as loginTemplate } from "../Login/Login";
 import { printTemplate as pokeApiTemplate } from "../Hub_Games/PokeApi/PokeApi";
 import { printTemplate as pptTemplate } from "../Hub_Games/Piedra_papel_tijera/Piedra_papel_tijera";
-import { printTemplate as quizTemplate } from "../Hub_Games/Quiz/Quiz";
 import { printTemplate as ahorcadoTemplate } from "../Hub_Games/Ahorcado/Ahorcado";
+
+const eliminar = () => {
+  const volverAtras = document.querySelector(".volver");
+  volverAtras.style.display = "none";
+}
+
+const eliminarCerrarSesion = () => {
+  const volverAtras = document.querySelector(".logOut");
+  volverAtras.style.display = "block";
+}
 
 let nameValue;
 
@@ -12,30 +21,24 @@ const template = () =>
   `
     <section class="games">
         <div class="welcome">
-            <h1>Hola ${nameValue}, bienvenido, para cerrar sesion pulse aquí</h1>
-            <button id="logOut" class="logOut">Cerrar sesion</button>
+            <h1>Hola ${nameValue}, bienvenid@.</h1>
         </div>
-        <h2>JUEGOS O APLICACIONES</h2>
+        <h1 class="h1Title">JUEGOS O APLICACIONES</h1>
         <div class="games2">
         <a href="#" class="pokeApi" id="pokeApi">
             <div>
-                <div id="pokeApi" class="pokeApi">POKEAPI</div>
+                <div id="pokeApi" class="pokeApi"><img src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675453504/International_Pok%C3%A9mon_logo.svg_lmrbp3.png" /></div>
             </div>
           
         </a>
         <a href="#" class="ppt" id="ppt">
             <div>
-                <div id="ppt" class="ppt">PIEDRA, PAPEL O TIJERAS</div>
-            </div>
-        </a>
-        <a href="#" class="quiz" id="quiz">
-            <div>
-                <div id="quiz" class="quiz">QUIZ DE PREGUNTAS</div>
+                <div id="ppt" class="ppt"><img class="imagenppt" src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675712265/piedra-papel-tijera_xu4uwg.png" /></div>
             </div>
         </a>
         <a href="#" class="ahorcado" id="ahorcado">
             <div>
-                <div id="ahorcado" class="ahorcado">AHORCADO</div>
+                <div id="ahorcado" class="ahorcado"><img src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675712387/32nQA_j1cuzg.png" /></div>
             </div>
         </a>
         </div>
@@ -64,13 +67,6 @@ const piedraPT = () => {
   })
 }
 
-const quiz = () =>{
-  const btnPokeApi = document.querySelector("#quiz");
-  btnPokeApi.addEventListener("click", () => {
-    quizTemplate();
-  })
-}
-
 
 const ahorcado = () =>{
   const btnPokeApi = document.querySelector("#ahorcado");
@@ -85,6 +81,7 @@ export const printTemplate = () => {
   logOut();
   poKeApi();
   piedraPT();
-  quiz();
   ahorcado();
+  eliminar();
+  eliminarCerrarSesion();
 };

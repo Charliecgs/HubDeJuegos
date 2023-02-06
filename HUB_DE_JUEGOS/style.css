@@ -5,7 +5,11 @@
 }
 
 body{
-  background-color: red;
+  background-color: rgb(34, 167, 228);
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 main {

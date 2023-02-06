@@ -1,26 +1,30 @@
 import "./Ahorcado.css";
 import { printTemplate as gamesTemplate } from "../../Games/Games";
 
+const eliminar = () => {
+  const volverAtras = document.querySelector(".volver");
+  console.log(volverAtras);
+  volverAtras.style.display = "block";
+}
+
 let fallos = 0;
 let aciertos = 0;
 
 const template = () => `
 <section class="secAhorcado">
-    <div>
-        <button id="volver" class="volver">Volver a juegos</button>
-    </div>
     <div class="titleAhorcado">
         <h1> AHORCADO</h1>
     </div>
     <div class="ahorcadoDiv">
         <div class="all">
             <div class="vacio">
-                <img src="../../../public/icons/7.png" id="imagen"/>
+                <img src="../../../public/icons/7.png" id="imagen" class="imgVacia"/>
             </div>
             <div class="introduce">
-            <button class="word">Pulsa para crear palabra</button>
-                <p class="letra">INTRODUCE LETRA</p>
-                <div class="spans"></div>
+              <button class="word">Pulsa para crear palabra</button>
+                  <p class="letra">INTRODUCE LETRA</p>
+                  <h1 class="letrah1"></h1>
+                  <div class="spans"></div>
             </div>
         </div>
         <div class="buttons"></div>
@@ -34,24 +38,31 @@ let palabras = ["HOLA", "ADIOS", "CASA", "AVION"];
 let palabra;
 
 const word = () => {
+  const word = document.querySelector(".word");
+  word.addEventListener("click", () => {
 
-    const word = document.querySelector(".word");
-    word.addEventListener("click", () => {
-        aciertos = 0;
-        fallos = 0;
-        word.disabled = true;
-        palabra = palabras[Math.floor(Math.random() * palabras.length)];
+    const botons = document.querySelectorAll(".botonesJuego");
 
-        console.log(palabra);
-          for (let i = 0; i < palabra.length; i++) {
-            const spans = document.querySelector(".spans");
-            const span = document.createElement("span");
-            // span.textContent = palabra[i];
-            span.classList.add("allSpans");
-            spans.appendChild(span);
-          }
-    })
+    for (const boton of botons) {
+      boton.disabled = false;
+    }
 
+    botons.disabled = false;
+    aciertos = 0;
+    fallos = 0;
+    word.disabled = true;
+
+    palabra = palabras[Math.floor(Math.random() * palabras.length)];
+
+    console.log(palabra);
+    for (let i = 0; i < palabra.length; i++) {
+      const spans = document.querySelector(".spans");
+      const span = document.createElement("span");
+      // span.textContent = palabra[i];
+      span.classList.add("allSpans");
+      spans.appendChild(span);
+    }
+  });
 };
 
 let letras = [
@@ -91,32 +102,37 @@ const crearBotones = () => {
     boton.classList.add("botonesJuego");
     boton.textContent = letras[i];
     divButtons.appendChild(boton);
+      boton.disabled = true;
+
+
     boton.addEventListener("click", () => {
       const spans = document.querySelectorAll("span");
       boton.disabled = true;
       const letra = boton.innerHTML.toUpperCase();
-      let acerto = false;
+      let acierto = false;
       for (let i = 0; i < palabra.length; i++) {
         if (letra == palabra[i]) {
           spans[i].innerHTML = letra;
-          acerto = true;
+          acierto = true;
           aciertos++;
-          console.log(aciertos);
         }
       }
-      if (acerto == false) {
+
+      if (acierto == false) {
         fallos++;
         const imagenes = `../../../public/icons/${fallos}_.png`;
         const imagen = document.querySelector("#imagen");
         imagen.src = imagenes;
-        console.log(fallos);
       }
+
       if (fallos == 6) {
-        alert("Has perdido");
+        document.querySelector(".letrah1").innerHTML = "HAS PERDIDO";
         const botonesJuego = document.querySelectorAll(".botonesJuego");
+
         for (const boton of botonesJuego) {
           boton.disabled = true;
         }
+
         const volverAJugar = document.querySelector(".volverAJugar");
         const crearBoton = document.createElement("button");
         crearBoton.textContent = "Volver a jugar";
@@ -127,13 +143,17 @@ const crearBotones = () => {
           fallos = 0;
           printTemplate();
         });
+
       }
+      
       if (aciertos == palabra.length) {
-        alert("Has ganado");
+        document.querySelector(".letrah1").innerHTML = "HAS GANADO";
+
         const botonesJuego = document.querySelectorAll(".botonesJuego");
         for (const boton of botonesJuego) {
           boton.disabled = true;
         }
+
         const volverAJugar = document.querySelector(".volverAJugar");
         const crearBoton = document.createElement("button");
         crearBoton.textContent = "Volver a jugar";
@@ -161,4 +181,5 @@ export const printTemplate = () => {
   volver();
   crearBotones();
   word();
+  eliminar();
 };

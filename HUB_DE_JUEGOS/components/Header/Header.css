@@ -1,17 +1,50 @@
-header{
-    padding: 30px;
+header {
+  padding: 30px;
 }
 
-header > nav{
-    justify-content: right;
-    display: flex;
-    align-items: center;
-    margin-right: 40px;
+header > nav {
+  justify-content: right;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
 }
 
-header > nav > button{
-    width: 200px;
-    border-style: none;
-    background-color: inherit;
-    font-size: 20px;
+.headerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.logOut {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
+header > nav > button {
+  width: 200px;
+  border-style: none;
+  background-color: inherit;
+  font-size: 20px;
+}
+
+#colorBtn {
+  font-size: 50px;
+}
+
+@media (max-width: 400px) {
+    header {
+        padding: 0;
+      }
+      
+      header > nav {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 0rem;
+        align-items: center;
+      }
 }

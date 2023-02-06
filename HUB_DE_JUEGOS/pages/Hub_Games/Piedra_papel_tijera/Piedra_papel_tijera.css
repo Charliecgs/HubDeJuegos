@@ -5,7 +5,21 @@
     flex-direction: column;
     gap: 48px;
     width: 100%;
+    color: white    ;
 }
+
+.piedra, .papel, .tijera, .piedraj2, .papelj2, .tijeraj2{
+    border-radius: 20px;
+    background-color: aquamarine;
+    font-size: 50px;
+}
+
+.piedra:hover, .papel:hover, .tijera:hover, .piedraj2:hover, .papelj2:hover, .tijeraj2:hover{
+    border-radius: 20px;
+    transition: 1s;
+    scale: 1.1;
+}
+
 
 .pptDiv{
     border: solid;
@@ -16,7 +30,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: blue;
 }
 
 .j1{
@@ -53,4 +69,164 @@
     gap: 2.7rem;
     margin-top: 30px;
     font-size: 50px;
+}
+
+.div1b{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.div1c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.jugarOtraVez{
+    width: 100px;
+    height: 50px;
+}
+
+
+
+
+
+@media (max-width: 800px){
+
+    .secPPT{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .pptDiv{
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 1rem;
+        background-color: blue;
+    }
+
+
+    .j1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10;
+    }
+    .j1 > h1{
+        width: 300px;
+        margin-left: 200px;
+    }
+
+    .j2 > h1{
+        width: 300px;
+        margin-left: 200px;
+    }
+
+
+    .j1 > button{
+        width: 50px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 100px;
+       }
+
+    .j2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10;
+    }
+
+    .j2 > button{
+        width: 50px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 10;
+       }
+    
+       .imagenes{
+        display: flex;
+        width: 100px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 0px;
+        position: absolute;
+        margin-bottom: 50px;
+    }
+
+    .piedra, .papel, .tijera, .piedraj2, .papelj2, .tijeraj2{
+        border-radius: 20px;
+        background-color: aquamarine;
+        font-size: 10px;
+    }
+    
+    .piedra:hover, .papel:hover, .tijera:hover, .piedraj2:hover, .papelj2:hover, .tijeraj2:hover{
+        border-radius: 20px;
+    }
+
+    .div1b{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    
+    }
+    
+    .div1c{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    
+    }
+    
+    .div1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    
+    
+
+    #app{
+        width: 100%;
+        padding: 0;
+    }
+    
 }

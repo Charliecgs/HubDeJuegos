@@ -3,25 +3,28 @@ import { printTemplate as gamesTemplate } from "../../Games/Games";
 
 const template = () => `
 <section class="secPokeApi">
-<div>
-    <button id="volver" class="volver">Volver a juegos</button>
-</div>
 <div class="titlePokeApi">
-    <img src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675453504/International_Pok%C3%A9mon_logo.svg_lmrbp3.png" />
+    <img src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675453504/International_Pok%C3%A9mon_logo.svg_lmrbp3.png" class="img"/>
 </div>
-<div>
- <input type="text" id="searchInput" placeholder="Buscar..." />
- </div>
  <div class="botonesDeTYP">
  <button class="tipos">Tipos</button>
  <button class="regiones">Regiones</button>
  </div>
- <button class="allPokemons">Todos los pokemons</button>
+
 <div class="tiposYRegion">
 </div>
+<div>
+<input type="text" id="searchInput" placeholder="Buscar..." class="inputBuscar"/>
+</div>
+<div><img  class="spinner" src="https://res.cloudinary.com/dqoiir5ii/image/upload/v1675716053/La-vida-dentro-de-una-Pokebola-2_oexgkq.png" /></div>
 <div class="container"></div>
 </section>
 `;
+
+const eliminar = () => {
+  const volverAtras = document.querySelector(".volver");
+  volverAtras.style.display = "block";
+}
 
 const volver = () => {
   const back = document.querySelector("#volver");
@@ -71,12 +74,15 @@ let types = [
 
 const getCharacters = async () => {
   pokemons = [];
+  const spinner = document.querySelector(".spinner");
+  spinner.style.display = "block";
   for (let i = 1; i <= 150; i++) {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     const json = await data.json();
     pokemons.push(json);
   }
   mapPokemons(pokemons);
+  spinner.style.display = "none";
 };
 
 let mappedPokemons;
@@ -87,30 +93,30 @@ const mapPokemons = (poke) => {
     image: pokemon.sprites.other.dream_world.front_default,
     type: pokemon.types[0].type.name,
   }));
-  getAllPokemons();
+  // getAllPokemons();
   printCharacters(mappedPokemons);
 };
 
 const printCharacters = (mapPokemons) => {
   for (const character of mapPokemons) {
     const container = document.querySelector(".container");
-    container.innerHTML += `<figure>
-        <p>${character.name}</p>
-        <p>${character.weight} </p>
-        <p>${character.type} </p>
-        <img src=${character.image} />
+    container.innerHTML += `<figure class="${character.type}">
+    <img src=${character.image} />
+        <p>Nombre: ${character.name}</p>
+        <p>Peso: ${character.weight/10} KG </p>
+        <p>Tipo: ${character.type} </p>
         </figure>
         `;
   }
 };
 
-const getAllPokemons = () => {
-  const all = document.querySelector(".allPokemons");
-  all.addEventListener("click", () => {
-    document.querySelector(".container").innerHTML = "";
-    mapPokemons(pokemons);
-  });
-};
+// const getAllPokemons = () => {
+//   const all = document.querySelector(".allPokemons");
+//   all.addEventListener("click", () => {
+//     document.querySelector(".container").innerHTML = "";
+//     mapPokemons(pokemons);
+//   });
+// };
 
 const typesPokemon = (array, type) => {
   const filterTypes = array.filter((type1) => type1.type === type);
@@ -214,14 +220,14 @@ let regions = [
   
   const printRegions = () => {
     for (const region of regions) {
-      console.log(region);
       const container = document.querySelector(".container");
-      container.innerHTML += `<figure>
+      container.innerHTML += `<figure class="regionColor">
           <p>${region.name}</p>
           <img src= ${region.img} />
           </figure>
           `;
     }
+    
   
   };
   
@@ -231,22 +237,17 @@ let regions = [
    
   // };
   
-  const createButtonsRegion = () => {
-    const botones = document.querySelector(".tiposYRegion");
-    for (const region of regions) {
-      const botons = document.createElement("button");
-      botons.classList.add(`${region.name}`);
-      botons.textContent = `${region.name}`;
-      botones.appendChild(botons);
-      botons.addEventListener("click", () => {
-        document.querySelector(".container").innerHTML = `<figure>
-        <p>${region.name}</p>
-        <img src= ${region.img} />
-        </figure>
-        `;
-      });
-    }
-  };
+  // const createButtonsRegion = () => {
+    
+  // };
+    // for (const region of regions) {
+    //   const botons = document.createElement("button");
+    //   botons.classList.add(`${region.name}`);
+    //   botons.textContent = `${region.name}`;
+    //   botones.appendChild(botons);
+      
+    // }
+
   
   // const filterRegions = (regions) => {
   //   const searchInput = document.querySelector("#searchInputRegion");
@@ -267,10 +268,9 @@ let regions = [
   const disabledDivRegiones = () => {
     const butonDisabled = document.querySelector(".regiones");
     butonDisabled.addEventListener("click", () => {
-      document.querySelector(".tiposYRegion").innerHTML = "";
-      createButtonsRegion();
       document.querySelector(".container").innerHTML = "";
       printRegions();
+
     })
   };
 
@@ -285,5 +285,6 @@ export const printTemplate = () => {
   disabledDiv();
   disabledDivRegiones();
   volver();
+  eliminar();
 };
 
